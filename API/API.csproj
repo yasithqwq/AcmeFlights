@@ -22,7 +22,6 @@
 
     <ItemGroup>
       <Folder Include="Application\EventHandlers\" />
-      <Folder Include="Application\Queries\" />
       <Folder Include="Migrations" />
     </ItemGroup>
 

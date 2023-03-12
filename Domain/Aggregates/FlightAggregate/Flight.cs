@@ -18,8 +18,6 @@ namespace Domain.Aggregates.FlightAggregate
         private List<FlightRate> _rates;
         public IReadOnlyCollection<FlightRate> Rates => _rates;
 
-        public decimal MinFlightRate => _rates.Min(r => r.Price.Value);
-
         protected Flight()
         {
             _rates = new List<FlightRate>();
