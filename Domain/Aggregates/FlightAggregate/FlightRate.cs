@@ -3,7 +3,7 @@ using Domain.SeedWork;
 
 namespace Domain.Aggregates.FlightAggregate
 {
-    public class FlightRate : Entity
+    public class FlightRate : Entity, IAggregateRoot
     {
         public string Name { get; private set; }
         public Price Price { get; private set; }
