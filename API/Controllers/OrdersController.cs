@@ -1,6 +1,7 @@
 ﻿using API.Application.Commands;
 using API.Application.ViewModels;
 using AutoMapper;
+using Domain.SeedWork;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -32,8 +33,7 @@ namespace API.Controllers
         public async Task<IActionResult> CreateOrder([FromBody] CreateOrderCommand command)
         {
             var createdOrder = await _mediator.Send(command);
-
-            return Ok(_mapper.Map<OrderViewModel>(createdOrder));
+            return new ObjectResult(_mapper.Map<OrderViewModel>(createdOrder)) { StatusCode = StatusCodes.Status201Created };
         }
 
         [HttpPost]
