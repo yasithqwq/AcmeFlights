@@ -54,7 +54,8 @@ namespace Infrastructure.Repositores
                 arrivalDatetime = fl.Arrival,
                 destination = ap.Name,
                 lowestPrice = fl.Rates.Min(r => r.Price.Value),
-            }).Where(x => x.destination.Contains(searchQuery.Destination)).Select(x => new FlightSearchResult
+            }).Where(x => !string.IsNullOrEmpty(searchQuery.Destination) ? x.destination.Contains(searchQuery.Destination) : true)
+            .Select(x => new FlightSearchResult
             {
                 DepartureAirportCode = x.departureAirportCode,
                 ArrivalAirportCode = x.arrivalAirportCode,
